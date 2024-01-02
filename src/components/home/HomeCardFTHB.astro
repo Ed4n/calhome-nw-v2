@@ -1,0 +1,25 @@
+---
+const { img } = Astro.props;
+import Icon from "../../img/home/House_Icon_2.png";
+import FTHB_Img from "../../img/home/Home_FTHB.jpg";
+---
+
+<div
+  class="group hover:scale-105 hover:shadow-sm transition-all min-w-[170px] max-w-[250px] h-[300px] md:max-w-none md:w-[350px] md:h-[120px] lg:w-[450px] lg:h-[180px] rounded-lg relative"
+>
+  <div
+    class="w-[90px] h-[90px] rounded-full bg-nw-red/80 absolute right-16 -top-9 group-hover:top-0 transition-all flex-center"
+  >
+    <img class="w-[30px] mb-12" src={Icon.src} alt="" />
+  </div>
+  <a class="relative flex overflow-hidden w-full h-full rounded-lg" href="#">
+    <img src={FTHB_Img.src} alt="" class="w-full h-full object-cover" />
+    <div
+      class="w-full md:w-[50%] h-[40%] md:h-full group-hover:w-full transition-all absolute right-0 bg-nw-red/80 group-hover:bg-nw-red flex-center flex-col text-xl lg:text-2xl text-white"
+    >
+      <b>FIRST-TIME</b>
+      <span>HOMEBUYER</span>
+      <span>PROPGRAM</span>
+    </div>
+  </a>
+</div>
