@@ -1,5 +1,8 @@
 ---
+import Accordion from "../components/Accordion.astro";
+import Footer from "../components/Footer.astro";
 import Buyer from "../components/fthb/Buyer.astro";
+import LoanTerms from "../components/fthb/LoanTerms.astro";
 import PropertyGuidelines from "../components/fthb/PropertyGuidelines.astro";
 import BgImg from "../img/fthb/FTHB_BG.jpg";
 import NWLogo from "../img/home/NW Logo.png";
@@ -8,28 +11,54 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="fthb">
-  <main class="text-nw-blue">
-    <header class="w-full h-screen flex justify-center bg-nw-blue">
+  <main class="text-nw-blue bg-nw-blue">
+    <header class="w-full h-[60vh] lg:h-screen flex justify-center bg-nw-blue">
       <div
-        class="w-[93%] h-[80%] lg:h-[95%] rounded-b-3xl overflow-hidden relative flex-center"
+        class="w-[93%] h-[90%] lg:h-[95%] rounded-b-3xl overflow-hidden relative flex-center"
       >
         <img src={BgImg.src} class="w-full h-full object-cover" alt="" />
-        <div class="w-full h-full absolute">
-          <h1 class="text-7xl flex flex-col font-bold text-white">
-            <span class="text-nw-blue text-8xl">FIRST-TIME</span>HOMEBUYER <br
-            /> PROGRAM
+        <div class="w-full flex-center h-full absolute">
+          <!-- Title  -->
+          <h1
+            class="text-4xl md:text-5xl lg:text-8xl flex flex-col font-bold text-white text-shadow lg:-mt-[15%] lg:-ml-[7%] text-center lg:text-start"
+          >
+            <span class="text-nw-blue lg:text-[110px]">FIRST-TIME</span
+            >HOMEBUYER <br /> PROGRAM
           </h1>
           <!-- Logos -->
-          <div class="right-5 top-5 absolute flex gap-5">
-            <img class="w-[125px]" src={Logo.src} alt="" />
-            <img class="w-[145px]" src={NWLogo.src} alt="" />
+          <div class="md:right-12 top-3 md:top-5 absolute flex gap-5">
+            <img
+              class="w-[70px] md:w-[100px] lg:w-[125px]"
+              src={Logo.src}
+              alt=""
+            />
+            <img
+              class="w-[100px] md:w-[150px] lg:w-[170px] object-contain"
+              src={NWLogo.src}
+              alt=""
+            />
+          </div>
+
+          <div
+            class="max-w-[270px] text-center md:max-w-none px-3 py-1 md:px-7 md:py-3 bottom-3 md:bottom-5 lg:bottom-12 absolute bg-nw-blue-2 text-white text-lg md:text-xl lg:text-3xl rounded-2xl font-bold"
+          >
+            PROGRAM OVERVIEW EFFECTIVE 2024
           </div>
         </div>
       </div>
     </header>
-    <Buyer />
-    <PropertyGuidelines />
 
-    <style></style>
+    <div class="hidden md:block">
+      <Buyer />
+      <PropertyGuidelines />
+      <LoanTerms />
+    </div>
+
+    <div class="w-full flex md:hidden flex-col gap-3 items-center pb-12">
+      <Accordion title="Buyer"><Buyer /></Accordion>
+      <Accordion title="Property Guidelines"><PropertyGuidelines /></Accordion>
+      <Accordion title="Loan Terms"><LoanTerms /></Accordion>
+    </div>
+    <Footer />
   </main>
 </Layout>

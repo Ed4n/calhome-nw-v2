@@ -1,5 +1,6 @@
 ---
 const { es = false } = Astro.props;
+import PGImg from "../../img/fthb/pg.png";
 
 const propertyGuidelines = [
   "The property must be within the City of Norwalk limits/boundaries.",
@@ -13,16 +14,25 @@ const propertyGuidelines = [
 ---
 
 <section
-  class="w-full bg-fthb-bg-2 bg-cover py-16 px-16 flex flex-col gap-7 relative text-lw-blue text-xl md:text-2xl"
+  class="w-full bg-fthb-bg-2 bg-cover md:pt-[12%] pb-16 md:px-16 flex flex-col gap-7 relative text-lw-blue text-xl md:text-2xl bg-white"
 >
-  <div class="triangle bg-lw-orange-2 right-12"></div>
+  <header
+    class="w-[98%] mt-3 md:mt-0 md:w-[90%] flex items-center justify-center rounded-3xl md:absolute md:-top-24 m-auto left-0 right-0"
+  >
+    <img src={PGImg.src} class="w-full h-full object-contain" alt="" />
+    <h1
+      class="text-3xl md:text-5xl lg:text-6xl text-nw-blue font-bold absolute right-[10%] text-center"
+    >
+      <span class="stroke-text text-4xl md:text-6xl lg:text-8xl">PROPERTY</span>
+      <br />
+      GUIDELINES
+    </h1>
+  </header>
 
-  <div class="w-[90%] h-[150px] bg-nw-blue-4 flex items-center justify-center rounded-3xl absolute -top-24 m-auto left-0 right-0">
-    Property Guidelines
-  </div>
+  <div class="w-full flex items-center justify-center relative"></div>
 
   <!-- Columns -->
-  <div class="w-full flex flex-col md:flex-row gap-5 md:gap-16">
+  <div class="w-full flex flex-col md:flex-row gap-5 md:gap-16 px-12 md:px-0">
     <ul class="w-full md:w-1/2 flex flex-col gap-7 list-disc">
       <li>{propertyGuidelines[0]}</li>
       <li>{propertyGuidelines[1]}</li>
@@ -38,7 +48,20 @@ const propertyGuidelines = [
     </ul>
   </div>
 
-  <ul>
+  <ul class="px-12 md:px-0">
     <li class="list-disc">{propertyGuidelines[6]}</li>
   </ul>
 </section>
+
+<style>
+  .stroke-text {
+    color: #d2e7f1;
+    letter-spacing: 4px;
+
+    text-shadow:
+      -2px 2px 0 #213468,
+      2px 2px 0 #213468,
+      2px -2px 0 #213468,
+      -2px -2px 0 #213468;
+  }
+</style>

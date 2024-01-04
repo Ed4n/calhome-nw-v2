@@ -1,5 +1,7 @@
 ---
-const {  es = false } = Astro.props;
+const { es = false } = Astro.props;
+
+import BuyerImg from "../../img/fthb/buyer.png";
 
 const buyer = [
   "You must occupy the property as your primary place of residence.",
@@ -19,18 +21,22 @@ const buyerInfoEs = [
   "La propiedad debe estar libre de cualquier peligro para la salud y la seguridad y / o exposición al envenenamiento por plomo.",
   "Antes de la aprobación final del préstamo, se llevará a cabo una inspección de los Estándares de Calidad de la Vivienda (HQS) para verificar la condición de la propiedad. Se debe proporcionar una prueba de la emisión inicial del permiso de construcción.",
 ];
-
 ---
 
 <!-- Buyer Section -->
 <section
-  class="flex flex-col items-center gap-7 px-7 py-5 pb-48 bg-nw-blue text-[18px] xl:text-[20px]"
+  class="flex flex-col items-center gap-7 px-3 md:px-7 py-5 pb-48 bg-nw-blue text-[18px] xl:text-[20px]"
 >
-  <div class="w-full h-[150px] bg-nw-blue-4 flex items-center justify-center rounded-3xl">
-    Buyer img
+  <div class="w-full flex items-center justify-center relative">
+    <img src={BuyerImg.src} class="w-full h-full object-contain" alt="" />
+    <h1
+      class="text-5xl md:text-8xl text-nw-blue font-bold absolute right-[10%] -mb-[5%]"
+    >
+      BUYER
+    </h1>
   </div>
 
-  <div class="w-full max-w-[1600px] flex justify-center gap-5 flex-wrap">
+  <div class="w-full max-w-[1600px] flex justify-center gap-5 flex-wrap px-3">
     {
       buyer.map((item, index) => (
         <div class=" px-5 py-1 rounded-2xl max-w-[500px] bg-nw-blue-4 flex items-center justify-center">

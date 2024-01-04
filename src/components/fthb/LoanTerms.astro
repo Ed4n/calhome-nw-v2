@@ -1,0 +1,95 @@
+---
+const {} = Astro.props;
+import LTImg from "../../img/fthb/LoanTerms.jpg";
+
+const loanTerms = {
+  list: [
+    "Principal and interest payments shall be deferred for the term of the CalHome Program Loan.",
+    "CalHome program Loans shall be secured by the property.",
+    "Prohibited loans and terms:",
+  ],
+  loanTerms: [
+    "Negative Amortization",
+    " Stated Income",
+    "Adjustable-Rate Mortgage (ARM)",
+    "Interest-Only Loans",
+    " The Front-End Ratio cannot be below 28 percent or over 40 percent.",
+    "The Back-End Ratio cannot be over 48 percent.",
+  ],
+};
+---
+
+<main>
+  <header class="w-full h-[70vh] flex-center min-h-[800px] relative">
+    <img class="w-full h-full object-cover" src={LTImg.src} alt="header-img" />
+    <h2
+      class="absolute font-bold flex flex-col text-center lg:left-12 top-5 lg:top-[20%]"
+    >
+      <span class="text-5xl lg:text-6xl">LOAN</span>
+      <span class="stroke-text text-7xl lg:text-9xl">TERMS</span>
+    </h2>
+
+    <ul
+      class="absolute bottom-[20%] lg:bottom-[25%] list-disc text-shadow text-white text-xl max-w-[500px] left-12"
+    >
+      <li>{loanTerms.list[0]}</li>
+      <li>{loanTerms.list[1]}</li>
+    </ul>
+
+    <span
+      class="absolute bottom-[10%] sm:bottom-[15%] text-shadow text-white text-xl font-bold"
+      >{loanTerms.list[2]}</span
+    >
+  </header>
+  <section class="w-full flex-center bg-nw-blue relative">
+    <div
+      class="w-[95%] lg:w-[90%] flex-center flex-wrap gap-3 lg:gap-5 py-16 -mt-[22%] md:-mt-[12%] lg:-mt-[7%]"
+    >
+      <div class="box">
+        <div class="box-letter">a)</div>
+        {loanTerms.loanTerms[0]}
+      </div>
+      <div class="box">
+        <div class="box-letter">b)</div>
+        {loanTerms.loanTerms[1]}
+      </div>
+      <div class="box">
+        <div class="box-letter">c)</div>
+        {loanTerms.loanTerms[2]}
+      </div>
+      <div class="box">
+        <div class="box-letter">d)</div>
+        {loanTerms.loanTerms[3]}
+      </div>
+      <div class="box">
+        <div class="box-letter">e)</div>
+        <span class="mt-5"> {loanTerms.loanTerms[4]}</span>
+      </div>
+      <div class="box">
+        <div class="box-letter">f)</div>
+        {loanTerms.loanTerms[5]}
+      </div>
+    </div>
+  </section>
+</main>
+
+<style>
+  .stroke-text {
+    color: white;
+    letter-spacing: 3px;
+
+    text-shadow:
+      -2px 2px 0 #213468,
+      2px 2px 0 #213468,
+      2px -2px 0 #213468,
+      -2px -2px 0 #213468;
+  }
+
+  .box {
+    @apply w-[220px] h-[170px] lg:w-[230px] lg:h-[180px] bg-nw-blue-4 rounded-xl text-nw-blue relative flex flex-col justify-center px-2 text-center items-center text-lg lg:text-xl;
+  }
+
+  .box-letter {
+    @apply w-[100px] h-[60px] bg-nw-blue rounded-xl flex justify-center items-center text-3xl text-nw-blue-4 absolute -top-[15%];
+  }
+</style>

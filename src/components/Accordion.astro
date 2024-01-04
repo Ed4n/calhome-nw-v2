@@ -1,0 +1,73 @@
+---
+const { title } = Astro.props;
+---
+
+<section>
+  <button
+    class="accordion w-full px-12 py-7 text-white bg-nw-blue flex justify-between text-2xl font-bold relative"
+  >
+    {title}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      class="icon icon-tabler icon-tabler-chevron-down"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      stroke-width="2"
+      stroke="currentColor"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+      <path d="M6 9l6 6l6 -6"></path>
+    </svg>
+
+    <div
+      class="w-[90%] h-[0.2px] bg-white/70 absolute bottom-1 m-auto left-0 right-0"
+    >
+    </div>
+  </button>
+  <div class="panel">
+    <slot />
+  </div>
+</section>
+
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function () {
+      this.classList.toggle("active");
+      var panel = this.nextElementSibling;
+      if (panel.style.maxHeight) {
+        panel.style.maxHeight = null;
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
+    });
+  }
+</script>
+
+<style>
+  .active {
+    background-color: #d2e7f1;
+    color: #213468;
+  }
+  svg {
+    transform: rotate(0deg);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .active svg {
+    transform: rotate(180deg);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+</style>
