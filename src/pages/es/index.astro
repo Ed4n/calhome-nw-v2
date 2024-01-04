@@ -1,17 +1,17 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
+import Layout from "../../layouts/Layout.astro";
+import Card from "../../components/Card.astro";
 
 // Images //
-import HomeBG from "../img/home/Home_BG.jpg";
-import Logo from "../img/home/NW Logo.png";
-import LanguageIcon from "../img/home/Language_Icon.png";
+import HomeBG from "../../img/home/Home_BG.jpg";
+import Logo from "../../img/home/NW Logo.png";
+import LanguageIcon from "../../img/home/Language_Icon.png";
 
-import HomeCardFTHB from "../components/home/HomeCardFTHB.astro";
-import HomeCardOOR from "../components/home/HomeCardOOR.astro";
+import HomeCardFTHB from "../../components/home/HomeCardFTHB.astro";
+import HomeCardOOR from "../../components/home/HomeCardOOR.astro";
 ---
 
-<Layout title="Home">
+<Layout title="Welcome to Astro.">
   <main class="flex-center w-full h-screen relative overflow-hidden">
     <img class="w-full h-full object-cover" src={HomeBG.src} alt="" />
     <!-- Content -->
@@ -21,15 +21,15 @@ import HomeCardOOR from "../components/home/HomeCardOOR.astro";
       <img class="w-[300px]" src={Logo.src} alt="" />
 
       <a
-        href="/es"
+        href="/"
         class="py-2 px-5 text-white absolute left-7 top-7 bg-nw-red rounded-md shadow-md hover:scale-105 transition-all flex-center gap-3"
         ><img class="w-[20px]" src={LanguageIcon.src} alt="" />
-        <span>Español?</span></a
+        <span>English?</span></a
       >
 
       <div class="w-[80%] bottom-16 absolute flex-center gap-5 md:gap-12">
-        <HomeCardFTHB />
-        <HomeCardOOR />
+        <HomeCardFTHB es={true} />
+        <HomeCardOOR es={true} />
       </div>
     </div>
   </main>

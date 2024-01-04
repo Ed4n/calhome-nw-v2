@@ -1,5 +1,5 @@
 ---
-const { img } = Astro.props;
+const { es = false } = Astro.props;
 import Icon from "../../img/home/House_Icon_2.png";
 import FTHB_Img from "../../img/home/Home_FTHB.jpg";
 ---
@@ -12,14 +12,26 @@ import FTHB_Img from "../../img/home/Home_FTHB.jpg";
   >
     <img class="w-[30px] mb-12" src={Icon.src} alt="" />
   </div>
-  <a class="relative flex overflow-hidden w-full h-full rounded-lg" href="#">
+  <a class="relative flex overflow-hidden w-full h-full rounded-lg" href="fthb">
     <img src={FTHB_Img.src} alt="" class="w-full h-full object-cover" />
     <div
       class="w-full md:w-[50%] h-[40%] md:h-full group-hover:w-full transition-all absolute right-0 bg-nw-red/80 group-hover:bg-nw-red flex-center flex-col text-xl lg:text-2xl text-white"
     >
-      <b>FIRST-TIME</b>
-      <span>HOMEBUYER</span>
-      <span>PROPGRAM</span>
+      {
+        es ? (
+          <>
+            <b>PROGRAMA PARA</b>
+            <span>PROPIETARIOS</span>
+            <span>POR PRIMERA VEZ</span>
+          </>
+        ) : (
+          <>
+            <b>FIRST-TIME</b>
+            <span>HOMEBUYER</span>
+            <span>PROPGRAM</span>
+          </>
+        )
+      }
     </div>
   </a>
 </div>

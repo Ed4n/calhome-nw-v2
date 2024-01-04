@@ -1,0 +1,44 @@
+---
+const { es = false } = Astro.props;
+
+const propertyGuidelines = [
+  "The property must be within the City of Norwalk limits/boundaries.",
+  "Occupancy Ratio: No more than 1.5 people per living space (including bedrooms, living room, family room, den/study).",
+  "The property must be occupied by the seller/owner and must not have been vacated within the last 30 days.",
+  "The property may be a new or resale single-family detached unit, condominium, townhouse, or manufactured home on a permanent foundation.",
+  "You must obtain fire and casualty insurance, including flood insurance when applicable, covering the replacement value of property improvements.",
+  "The property must be free from any health & safety hazards and/or lead poisoning exposures.",
+  "Before final loan approval, a Housing Quality Standards (HQS) inspection will be conducted to verify the property’s condition. Proof of initial building permit issuance must be provided.",
+];
+---
+
+<section
+  class="w-full bg-fthb-bg-2 bg-cover py-16 px-16 flex flex-col gap-7 relative text-lw-blue text-xl md:text-2xl"
+>
+  <div class="triangle bg-lw-orange-2 right-12"></div>
+
+  <div class="w-[90%] h-[150px] bg-nw-blue-4 flex items-center justify-center rounded-3xl absolute -top-24 m-auto left-0 right-0">
+    Property Guidelines
+  </div>
+
+  <!-- Columns -->
+  <div class="w-full flex flex-col md:flex-row gap-5 md:gap-16">
+    <ul class="w-full md:w-1/2 flex flex-col gap-7 list-disc">
+      <li>{propertyGuidelines[0]}</li>
+      <li>{propertyGuidelines[1]}</li>
+      <li>{propertyGuidelines[2]}</li>
+    </ul>
+
+    <ul class="w-full md:w-1/2 flex flex-col gap-5 list-disc">
+      <li>{propertyGuidelines[3]}</li>
+      <li>
+        {propertyGuidelines[4]}
+      </li>
+      <li>{propertyGuidelines[5]}</li>
+    </ul>
+  </div>
+
+  <ul>
+    <li class="list-disc">{propertyGuidelines[6]}</li>
+  </ul>
+</section>

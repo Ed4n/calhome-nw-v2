@@ -1,0 +1,42 @@
+---
+const {  es = false } = Astro.props;
+
+const buyer = [
+  "You must occupy the property as your primary place of residence.",
+  "You must contribute three percent of the purchase price from your funds.",
+  "You must not have owned a residential unit or been on the title of a residential unit within the last three years.",
+  "The maximum CalHome loan amount will be 40 percent of the Borrower's purchase price for the property or up to $200,000 or $150,000 for Manufactured Homes.",
+  "The purchase price may not exceed $725,000 subject to periodic adjustments.",
+  "The total gross annual income of the entire household must not exceed 80 percent of the Los Angeles County Area Median Income (AMI).",
+];
+
+const buyerInfoEs = [
+  "La propiedad debe estar ubicada dentro de los límites de la ciudad de Lynwood.",
+  "La propiedad puede ser una unidad unifamiliar nueva o de reventa, condominio, casa adosada o casa prefabricada sobre una base permanente.",
+  "Relación de ocupación: No más de 1.5 personas por espacio habitable (incluyendo dormitorios, sala de estar, sala familiar, guarida / estudio).",
+  "Debe obtener un seguro de incendio y accidentes, incluido el seguro contra inundaciones cuando corresponda, cubriendo el valor de reposición de las mejoras de la propiedad.",
+  "La propiedad debe ser ocupada por el vendedor / propietario y no debe haber sido desocupada en los últimos 30 días.",
+  "La propiedad debe estar libre de cualquier peligro para la salud y la seguridad y / o exposición al envenenamiento por plomo.",
+  "Antes de la aprobación final del préstamo, se llevará a cabo una inspección de los Estándares de Calidad de la Vivienda (HQS) para verificar la condición de la propiedad. Se debe proporcionar una prueba de la emisión inicial del permiso de construcción.",
+];
+
+---
+
+<!-- Buyer Section -->
+<section
+  class="flex flex-col items-center gap-7 px-7 py-5 pb-48 bg-nw-blue text-[18px] xl:text-[20px]"
+>
+  <div class="w-full h-[150px] bg-nw-blue-4 flex items-center justify-center rounded-3xl">
+    Buyer img
+  </div>
+
+  <div class="w-full max-w-[1600px] flex justify-center gap-5 flex-wrap">
+    {
+      buyer.map((item, index) => (
+        <div class=" px-5 py-1 rounded-2xl max-w-[500px] bg-nw-blue-4 flex items-center justify-center">
+          {item}
+        </div>
+      ))
+    }
+  </div>
+</section>

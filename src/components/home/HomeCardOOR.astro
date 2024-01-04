@@ -1,5 +1,5 @@
 ---
-const { img } = Astro.props;
+const { es = false } = Astro.props;
 import Icon from "../../img/home/House_Icon_1.png";
 import FTHB_Img from "../../img/home/Home_OOR.jpg";
 ---
@@ -17,9 +17,19 @@ import FTHB_Img from "../../img/home/Home_OOR.jpg";
     <div
       class="w-full md:w-[50%] h-[40%] md:h-full group-hover:w-full transition-all absolute bg-nw-blue/80 group-hover:bg-nw-blue flex-center flex-col text-xl lg:text-2xl text-white"
     >
-      <b>FIRST-TIME</b>
-      <span>HOMEBUYER</span>
-      <span>PROPGRAM</span>
+      {
+        es ? (
+          <>
+            <b>CASAS</b>
+            <span>PREFABRICADAS</span>
+          </>
+        ) : (
+          <>
+            <b>MOBILE</b>
+            <span>HOMES</span>
+          </>
+        )
+      }
     </div>
   </a>
 </div>
