@@ -1,0 +1,188 @@
+---
+const { es = false } = Astro.props;
+
+const paymentBreakdown = {
+  list: [
+    "The Loan shall be due and payable in 20 years, with 10 percent of the original principal to be forgiven annually for each additional year beyond the 10th year that the Borrower owns and continuously occupies the home.",
+    "Example: The original loan amount is $XXX with a 3% simple interest added, totaling $XX.",
+    "Simple Interest Repayment: The accrued simple interest cannot be waived. A monthly repayment of $XXX will be required over the span of one year to settle the remaining balance.",
+  ],
+
+  payments: [
+    "Full amount due, no deductions",
+    "10% reduction from principal amount, lowering amount to $XXX.",
+    "Final 10% reduction, with a remaining balance of $XXX—only being the 3% simple interest for repayment.",
+  ],
+  numbers: [
+    "1st -10th Year",
+    "11th Year:",
+    "12th Year:",
+    "13th Year:",
+    "14th Year:",
+    "15th Year:",
+    "16th Year:",
+    "17th Year:",
+    "18th Year:",
+    "19th Year:",
+    "20th Year:",
+  ],
+};
+
+const paymentBreakdownEs = {
+  list: [
+    "El préstamo se diferirá durante 20 años. Si se requiere el pago antes de que concluya este  período diferido, el siguiente desglose describe el monto de pago necesario.",
+    "Ejemplo: el monto del préstamo original es $XXX con un interés simple agregado del 3 %, por un total de $XXX.",
+    "Pago de interés simple: El interés simple devengado no se puede renunciar. Se requerirá un pago mensual de $XXX durante el lapso de un año para liquidar el saldo restante.",
+  ],
+
+  payments: [
+    "monto total adeudado, sin deducciones",
+    "reducción del 10 % del monto principal, lo que reduce el monto a $XXX",
+    "Reducción final del 10%, con un saldo restante de $XXX, siendo solo el 3% de interés simple por pagar.",
+  ],
+  numbers: [
+    "1º -10º año:",
+    "11º año:",
+    "12º año:",
+    "13º año:",
+    "14º año:",
+    "15º año:",
+    "16º año:",
+    "17º año:",
+    "18º año:",
+    "19º año:",
+    "20º año:",
+  ],
+};
+
+let info = {
+  list: [],
+  payments: [],
+  numbers: [],
+};
+
+if (es) {
+  info = paymentBreakdownEs;
+} else {
+  info = paymentBreakdown;
+}
+---
+
+<main
+  class="text-nw-blue bg-white text-lg px-12 py-7 flex flex-col items-center gap-5"
+>
+  <h2
+    class="font-bold flex flex-col text-nw-blue text-center md:text-start md:self-start"
+  >
+    {
+      es ? (
+        <>
+          <span class="text-3xl lg:text-6xl">DESGLOSE </span>
+          <span class="stroke-text text-5xl lg:text-8xl"> DE PAGO</span>
+        </>
+      ) : (
+        <>
+          <span class="text-3xl lg:text-6xl">PAYMENT</span>
+          <span class="stroke-text text-5xl lg:text-8xl">BREAKDOWN</span>
+        </>
+      )
+    }
+  </h2>
+
+  <p class="selft-start w-full">{info.list[0]}</p>
+  <p class="selft-start w-full">{info.list[1]}</p>
+  <!-- Payments List -->
+  <div
+    class="w-full flex flex-col md:flex-row justify-between gap-3 md:gap-0 flex-wrap md:min-w-[780px] max-w-[1500px]"
+  >
+    <section class="w-full md:w-1/2 flex flex-col items-center gap-3">
+      <!-- Payment Box  -->
+      <div class="payment-box">
+        <b>{info.numbers[0]}</b>
+        <span>{info.payments[0]}</span>
+      </div>
+      <!-- ------------- -->
+      <!-- Payment Box  -->
+      <div class="payment-box">
+        <b>{info.numbers[1]}</b>
+        <span>{info.payments[1]}</span>
+      </div>
+      <!-- ------------- -->
+      <!-- Payment Box  -->
+      <div class="payment-box">
+        <b>{info.numbers[2]}</b>
+        <span>{info.payments[1]}</span>
+      </div>
+      <!-- ------------- -->
+      <!-- Payment Box  -->
+      <div class="payment-box">
+        <b>{info.numbers[3]}</b>
+        <span>{info.payments[1]}</span>
+      </div>
+      <!-- ------------- -->
+      <!-- Payment Box  -->
+      <div class="payment-box">
+        <b>{info.numbers[4]}</b>
+        <span>{info.payments[1]}</span>
+      </div>
+      <!-- ------------- -->
+    </section>
+    <section class="w-full md:w-1/2 flex flex-col items-center gap-3">
+      <!-- Payment Box  -->
+      <div class="payment-box">
+        <b>{info.numbers[5]}</b>
+        <span>{info.payments[0]}</span>
+      </div>
+      <!-- ------------- -->
+      <!-- Payment Box  -->
+      <div class="payment-box">
+        <b>{info.numbers[6]}</b>
+        <span>{info.payments[1]}</span>
+      </div>
+      <!-- ------------- -->
+      <!-- Payment Box  -->
+      <div class="payment-box">
+        <b>{info.numbers[7]}</b>
+        <span>{info.payments[1]}</span>
+      </div>
+      <!-- ------------- -->
+      <!-- Payment Box  -->
+      <div class="payment-box">
+        <b>{info.numbers[8]}</b>
+        <span>{info.payments[1]}</span>
+      </div>
+      <!-- ------------- -->
+      <!-- Payment Box  -->
+      <div class="payment-box">
+        <b>{info.numbers[9]}</b>
+        <span>{info.payments[1]}</span>
+      </div>
+      <!-- ------------- -->
+    </section>
+  </div>
+  <div class="payment-box">
+    <b>{info.numbers[9]}</b>
+    <span>{info.payments[2]}</span>
+  </div>
+</main>
+
+<style>
+  .stroke-text {
+    color: white;
+    letter-spacing: 3px;
+
+    text-shadow:
+      -2px 2px 0 #213468,
+      2px 2px 0 #213468,
+      2px -2px 0 #213468,
+      -2px -2px 0 #213468;
+  }
+
+  .payment-box {
+    @apply w-[100%] md:w-[370px] xl:w-[600px] md:h-[90px] px-3 py-2 md:py-1 flex flex-col justify-center bg-gradient-to-r from-nw-yellow  to-nw-blue-3 rounded-xl;
+  }
+
+  .payment-box span {
+    @apply leading-5;
+  }
+</style>

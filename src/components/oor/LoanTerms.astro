@@ -1,0 +1,147 @@
+---
+const { es = false } = Astro.props;
+import House from "../../img/oor/OOR_LoanTerms_House.png";
+
+const loanTerms = {
+  list: [
+    "Principal and interest payments shall be deferred for the term of the CalHome Loan.",
+    "The full loan amount becomes due and payable in the following circumstances:",
+  ],
+  circumstances: [
+    "Sale or transfer of the property, excluding permitted transfers",
+    "The owner no longer occupies the property as their primary residence",
+  ],
+};
+
+const loanTermsEs = {
+  list: [
+    "Los pagos de capital e interés se diferirán durante el plazo del Préstamo CalHome.",
+    "El monto total del préstamo vence y es pagadero en las siguientes circunstancias:",
+  ],
+  circumstances: [
+    "Venta o transferencia de la propiedad, excluidas las transferencias permitidas.",
+    "El propietario ya no ocupa la propiedad como su residencia principal.",
+  ],
+};
+
+let info = {
+  list: [],
+  circumstances: [],
+};
+
+if (es) {
+  info = loanTermsEs;
+} else {
+  info = loanTerms;
+}
+---
+
+<main class="flex flex-col items-center px-7 md:px-12 text-lg">
+  <h2
+    class="font-bold hidden md:flex gap-4 text-white text-center md:text-start md:self-start -mb-[6%]"
+  >
+    {
+      es ? (
+        <>
+          <span class="text-3xl md:text-6xl">CONDICIONES </span>
+          <span class="stroke-text text-3xl md:text-6xl"> DEL PRESTAMO</span>
+        </>
+      ) : (
+        <>
+          <span class="text-3xl md:text-6xl">LOAN</span>
+          <span class="stroke-text text-3xl md:text-6xl">TERMS</span>
+        </>
+      )
+    }
+  </h2>
+
+  <header
+    class="overflow-hidden h-[200px] md:h-auto relative w-full flex items-end justify-end rounded-3xl pt-[7%]"
+  >
+    <div
+      class="w-full rounded-t-3xl h-[70%] bg-gradient-to-r from-nw-yellow to-nw-blue-3 text-nw-blue px-12 flex items-center md:items-start md:pt-16 md:pb-[10%]"
+    >
+      <ul class="list-disc hidden md:block w-[50%]">
+        <li>{info.list[0]}</li>
+        <li>{info.list[1]}</li>
+      </ul>
+
+      <h2
+        class="md:hidden font-bold z-10 flex flex-col text-white md:self-start -mb-[6%]"
+      >
+        {
+          es ? (
+            <>
+              <span class="text-3xl md:text-6xl">CONDICIONES </span>
+              <span class="stroke-text-2 text-3xl md:text-6xl">
+                {" "}
+                DEL PRESTAMO
+              </span>
+            </>
+          ) : (
+            <>
+              <span class="text-3xl md:text-6xl">LOAN</span>
+              <span class="stroke-text-2 text-3xl md:text-6xl">TERMS</span>
+            </>
+          )
+        }
+      </h2>
+    </div>
+    <img
+      src={House.src}
+      class="w-[250px] md:w-[450px] object-contain absolute right-0 bottom-0"
+      alt=""
+    />
+  </header>
+  <ul class="list-disc block md:hidden w-[85%] mt-5 text-white">
+    <li>{info.list[0]}</li>
+    <li>{info.list[1]}</li>
+  </ul>
+
+  <div class="w-full md:pb-[5%] py-16">
+    <div
+      class="flex flex-col items-center md:items-start md:flex-row gap-16 md:gap-5 w-full md:pl-12 md:-mt-[7%]"
+    >
+      <div class="box">
+        <div class="box-letter">a)</div>
+        {info.circumstances[0]}
+      </div>
+
+      <div class="box">
+        <div class="box-letter">b)</div>
+        {info.circumstances[1]}
+      </div>
+    </div>
+  </div>
+</main>
+<style>
+  .stroke-text {
+    color: #5a9aa4;
+    letter-spacing: 3px;
+
+    text-shadow:
+      -2px 2px 0 #ffff,
+      2px 2px 0 #ffff,
+      2px -2px 0 #ffff,
+      -2px -2px 0 #ffff;
+  }
+
+  .stroke-text-2 {
+    color: #d2c17f;
+    letter-spacing: 3px;
+
+    text-shadow:
+      -1px 1px 0 #ffff,
+      1px 1px 0 #ffff,
+      1px -1px 0 #ffff,
+      -1px -1px 0 #ffff;
+  }
+
+  .box {
+    @apply w-[85%] py-5 md:py-0 md:w-[330px] md:h-[150px] bg-white rounded-3xl text-nw-blue relative flex flex-col justify-center px-2 text-center items-center text-lg shadow-lg;
+  }
+
+  .box-letter {
+    @apply w-[100px] h-[60px] bg-nw-blue rounded-xl flex justify-center items-center text-3xl text-nw-blue-4 absolute -top-[40%] md:-top-[15%];
+  }
+</style>
